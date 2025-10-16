@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Gurav | Cybersecurity Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== CSS RESET & GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVIGATION BAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #007bff;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #007bff;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            min-height: 100vh;
+            padding: 6rem 2rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: #007bff;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* ===== HOME SECTION ===== */
+        #home {
+            animation-delay: 0.2s;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #007bff;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .intro {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #8b949e;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .cta-btn:hover {
+            background: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: #161b22;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            border-color: #007bff;
+            box-shadow: 0 5px 20px rgba(0, 123, 255, 0.2);
+        }
+
+        .about-card h3 {
+            color: #007bff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-card i {
+            font-size: 1.5rem;
+        }
+
+        .about-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .about-card li {
+            padding: 0.5rem 0;
+            color: #8b949e;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .about-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        .projects-placeholder {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #161b22;
+            border-radius: 10px;
+            border: 1px dashed #30363d;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .projects-placeholder i {
+            font-size: 4rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .projects-placeholder p {
+            font-size: 1.2rem;
+            color: #8b949e;
+        }
+
+        /* ===== ACHIEVEMENTS SECTION ===== */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .achievement-card:hover::before {
+            opacity: 1;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            border-color: #007bff;
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
+        }
+
+        .achievement-card i {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-card h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .achievement-card p {
+            color: #8b949e;
+        }
+
+        .more-text {
+            text-align: center;
+            color: #8b949e;
+            font-style: italic;
+            margin-top: 2rem;
+        }
+
+        /* ===== ARTICLES SECTION ===== */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .article-card {
+            background: #161b22;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-card::after {
+            content: '→';
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: #007bff;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            border-color: #007bff;
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+        }
+
+        .article-card:hover::after {
+            opacity: 1;
+            right: 1rem;
+        }
+
+        .article-card i {
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .article-card h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            margin-bottom: 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .social-icon {
+            width: 70px;
+            height: 70px;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c9d1d9;
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #007bff;
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 123, 255, 0.5);
+            border-color: #007bff;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0d1117;
+            padding: 2rem;
+            text-align: center;
+            color: #8b949e;
+            border-top: 1px solid #30363d;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .intro {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 5rem 1rem 3rem;
+            }
+
+            .social-links {
+                gap: 1.5rem;
+            }
+
+            .social-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION BAR ===== -->
+    <nav>
+        <ul>
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#achievements" class="nav-link">Achievements</a></li>
+            <li><a href="#articles" class="nav-link">Articles</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HOME SECTION ===== -->
+    <section id="home">
+        <div class="container hero-content">
+            <h1>Jay Gurav</h1>
+            <p class="tagline">Cybersecurity Enthusiast | Ethical Hacker | B.Tech Student</p>
+            <p class="intro">
+                Hi, I'm Jay Gurav — a passionate cybersecurity enthusiast and ethical hacker currently pursuing my B.Tech in Cyber Security at Shah and Anchor Kutchhi Engineering College. I'm deeply interested in discovering vulnerabilities, building defensive tools, and exploring how AI can strengthen digital security. My goal is to make the digital world safer through research, innovation, and hands-on cybersecurity projects.
+            </p>
+            <a href="#contact" class="cta-btn">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-card fade-in">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <p>Currently pursuing B.Tech in Cyber Security at Shah and Anchor Kutchhi Engineering College (2023–2027). Building a strong foundation in network security, cryptography, and ethical hacking.</p>
+                </div>
+                <div class="about-card fade-in">
+                    <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                    <ul>
+                        <li>CEH v13 Certified Ethical Hacker</li>
+                        <li>CompTIA Security+ (In Progress)</li>
+                    </ul>
+                </div>
+                <div class="about-card fade-in">
+                    <h3><i class="fas fa-shield-alt"></i> Interests</h3>
+                    <ul>
+                        <li>Hardware Hacking</li>
+                        <li>AI in Cybersecurity</li>
+                        <li>Digital Forensics</li>
+                    </ul>
+                </div>
+                <div class="about-card fade-in">
+                    <h3><i class="fas fa-heart"></i> Hobbies</h3>
+                    <ul>
+                        <li>Astrophysics</li>
+                        <li>Landscape Photography</li>
+                        <li>Geopolitics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="projects-placeholder fade-in">
+                <i class="fas fa-code"></i>
+                <p>Projects coming soon. Stay tuned for exciting cybersecurity and AI-based tools by Jay Gurav.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ACHIEVEMENTS SECTION ===== -->
+    <section id="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Achievements</h2>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-card fade-in">
+                    <i class="fas fa-award"></i>
+                    <h3>CEH Certification</h3>
+                    <p>Certified Ethical Hacker v13 - Mastering vulnerability assessment and penetration testing</p>
+                </div>
+                <div class="achievement-card fade-in">
+                    <i class="fas fa-trophy"></i>
+                    <h3>TryHackMe Badges</h3>
+                    <p>Earned multiple badges for completing challenging cybersecurity labs and CTF challenges</p>
+                </div>
+                <div class="achievement-card fade-in">
+                    <i class="fas fa-flag"></i>
+                    <h3>CTF Participations</h3>
+                    <p>Active participation in Capture The Flag competitions, solving security challenges</p>
+                </div>
+            </div>
+            <p class="more-text">More achievements will be added as Jay continues his cybersecurity journey.</p>
+        </div>
+    </section>
+
+    <!-- ===== ARTICLES SECTION ===== -->
+    <section id="articles">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cybersecurity Articles</h2>
+            </div>
+            <div class="articles-grid">
+                <a href="https://github.com/JayG1711/-Dark-Web-Investigations-Tools-Techniques-and-Challenges" target="_blank" class="article-card fade-in">
+                    <i class="fas fa-user-secret"></i>
+                    <h3>Dark Web Investigations: Tools, Techniques, and Challenges</h3>
+                </a>
+                <a href="https://github.com/JayG1711/Basics-of-Software-Design" target="_blank" class="article-card fade-in">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Basics of Software Design</h3>
+                </a>
+                <a href="https://github.com/JayG1711/Personalized-Google-Website-Portfolio" target="_blank" class="article-card fade-in">
+                    <i class="fas fa-globe"></i>
+                    <h3>Personalized Google Website Portfolio</h3>
+                </a>
+                <a href="https://github.com/JayG1711/Applications-of-Turing-Machines-in-Artificial-Intelligence-and-Problem-Solving" target="_blank" class="article-card fade-in">
+                    <i class="fas fa-brain"></i>
+                    <h3>Applications of Turing Machines in AI and Problem Solving</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact">
+        <div class="container contact-content">
+            <h2>Let's Connect</h2>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/jay-gurav/" target="_blank" class="social-icon" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:jaygurav2004@gmail.com" class="social-icon" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/JayG1711" target="_blank" class="social-icon" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://tryhackme.com/p/Jayg17" target="_blank" class="social-icon" title="TryHackMe">
+                    <i class="fas fa-user-ninja"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; 2025 Jay Gurav | Cybersecurity Portfolio</p>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== SMOOTH SCROLLING & ACTIVE NAV LINK =====
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ===== FADE-IN ANIMATION ON SCROLL =====
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', fadeInOnScroll);
+        fadeInOnScroll(); // Initial check on page load
+    </script>
+</body>
+</html>
